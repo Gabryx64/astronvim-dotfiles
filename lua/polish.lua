@@ -22,7 +22,7 @@ local function Ide(_)
   vim.cmd "split"
   vim.cmd "terminal"
   vim.cmd "wincmd k"
-  vim.cmd "resize 35"
+  vim.cmd "resize 40"
 end
 
 local function DevC(_) require("devcontainer").commands.start_auto(nil, true) end
