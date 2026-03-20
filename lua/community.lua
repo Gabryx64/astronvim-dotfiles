@@ -35,9 +35,10 @@ return {
   preview "render-markdown-nvim",
 
   -- Looks
-  -- util "neodim", -- needs nightly rn
+  util "neodim",
   util "noice-nvim",
   ed "todo-comments-nvim",
+  ed "vim-visual-multi",
   media "presence-nvim",
   media "pets-nvim",
   color "tint-nvim",

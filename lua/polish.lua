@@ -16,13 +16,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 local function SuW(_) vim.cmd "w !doas tee > /dev/null %" end
 
+local termHeight = math.floor(vim.fn.winheight(0) * 0.75 + 0.5)
+
 local function Ide(_)
   vim.cmd "Neotree"
   vim.cmd "wincmd l"
   vim.cmd "split"
   vim.cmd "terminal"
   vim.cmd "wincmd k"
-  vim.cmd "resize 40"
+  vim.cmd("resize " .. termHeight)
 end
 
 local function DevC(_) require("devcontainer").commands.start_auto(nil, true) end
