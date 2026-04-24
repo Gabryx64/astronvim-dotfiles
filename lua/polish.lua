@@ -41,3 +41,6 @@ vim.api.nvim_create_user_command("DevC", DevC, {})
 vim.api.nvim_create_user_command("Dbg", Dbg, {})
 
 vim.opt.mouse = nil
+
+vim.g.loaded_zipPlugin = 0
+vim.g.loaded_zip = 0
