@@ -41,6 +41,9 @@ vim.api.nvim_create_user_command("DevC", DevC, {})
 vim.api.nvim_create_user_command("Dbg", Dbg, {})
 
 vim.opt.mouse = nil
-
+vim.o.expandtab = true
+vim.bo.tabstop = 2
+vim.bo.softtabstop = 2
+vim.bo.shiftwidth = 2
 vim.g.loaded_zipPlugin = 0
 vim.g.loaded_zip = 0

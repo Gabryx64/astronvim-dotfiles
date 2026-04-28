@@ -1,21 +1,13 @@
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
-
 ---@type LazySpec
 return {
+
+  -- == Examples of Adding Plugins ==
+
+  "andweeb/presence.nvim",
   {
-    "alaviss/nim.nvim",
-    ft = { "nim" },
-  },
-  {
-    "ShinKage/idris2-nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    ft = { "idr" },
-  },
-  {
-    "ahmedkhalf/jupyter-nvim",
-    build = ":UpdateRemotePlugins",
-    ft = "ipynb",
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require("lsp_signature").setup() end,
   },
   {
     "lukas-reineke/lsp-format.nvim",
@@ -25,26 +17,6 @@ return {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
     ft = "md",
-  },
-  {
-    "puremourning/vimspector",
-    lazy = false,
-    init = function()
-      vim.cmd [[
-        let g:vimspector_sidebar_width = 65
-        let g:vimspector_bottombar_height = 15
-
-        nmap <C-F9> <cmd>call vimspector#Launch()<cr>
-        nmap <C-F5> <cmd>call vimspector#StepOver()<cr>
-        nmap <C-F8> <cmd>call vimspector#Reset()<cr>
-        nmap <C-F11> <cmd>call vimspector#StepOver()<cr>
-        nmap <C-F12> <cmd>call vimspector#StepOut()<cr>
-        nmap <C-F10> <cmd>call vimspector#StepInto()<cr>
-        nmap Db <cmd>call vimspector#ToggleBreakpoint()<cr>
-        nmap Dw <cmd>call vimspector#AddWatch()<cr>
-        nmap De <cmd>call vimspector#Evaluate()<cr>
-      ]]
-    end,
   },
   {
     "scalameta/nvim-metals",
@@ -103,34 +75,27 @@ return {
     },
     lazy = false,
   },
-
-  "andweeb/presence.nvim",
   {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
-
-  -- customize alpha options
-  {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        "  __",
-        " /_ \\",
-        "   \\ \\",
-        "    \\ \\",
-        "     \\ \\",
-        "     /  \\",
-        "    / /\\ \\",
-        "   / /  \\ \\",
-        "  / /    \\ \\",
-        " / /      \\ \\",
-        "/_/        \\_\\",
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            "  __          ",
+            " /_ \\         ",
+            "   \\ \\        ",
+            "    \\ \\       ",
+            "     \\ \\      ",
+            "     /  \\     ",
+            "    / /\\ \\    ",
+            "   / /  \\ \\   ",
+            "  / /    \\ \\  ",
+            " / /      \\ \\ ",
+            "/_/        \\_\\",
+          }, "\n"),
+        },
+      },
+    },
   },
   { "L3MON4D3/LuaSnip", enabled = false },
   {
